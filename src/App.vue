@@ -1,35 +1,18 @@
 <script setup>
 import {ref} from 'vue'
+import category from "@/assets/category.json"
+//const categories = ref({name: 'category.name'}, {url: 'category.image_url'} ,{code: 'category.code' })
+const categories = ref(category)
 
-const awesome = ref(true)
-
-function toggleAwesome(val) {
-	awesome.value = !val
-}
-
-function isAwesome() {
- return awesome.value
-}
 </script>
 
 <template>
-	<button @click = "toggleAwesome(awesome)">toggle</button>
-	<h1 v-if = "isAwesome()">Vue is awesome!</h1>
-	<h1 v-else>Oh no 😥 </h1>
 
-<!--
-	<h4 v-if="awesome">O TRUE</h4>
-	<h4 v-show="awesome">X FALSE</h4>
--->
+<ol> 
+<li v-for="(categoryEach, index) in categories">
+<pre>
+   {{index}}: {{categoryEach.name}},  {{categoryEach.image_url}}, {{categoryEach.code}}
+</pre>
+</li>
+</ol>
 </template>
-
-<style scoped>
-button {
-	
-	position: fixed;
-	left : 100px;;	
-	top: 50px;
-
-}
-
-</style>
