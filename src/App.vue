@@ -1,17 +1,19 @@
 <script setup>
 import {ref} from 'vue'
-import category from "@/assets/category.json"
+import proverb from "@/assets/proverbs.json"
 //const categories = ref([{name: 'category.name'}, {url: 'category.image_url'} ,{code: 'category.code' }])
-const categories = ref(category)
+const topic = ref('Amharic proverbs')
+const proverbs  = ref(proverb['Amharic proverbs'])
 
 </script>
 
 <template>
 
+{{topic}}
 <ol> 
-<li v-for="(categoryEach, index) in categories">
+<li v-for="(proverbEach, index) in proverbs">
 <pre>
-   {{index}}: {{categoryEach.name}},  {{categoryEach.image_url}}, {{categoryEach.code}}
+   {{proverbEach['Ge\'ez Writing']}} =  {{proverbEach['English Equivalent Proverbs']}}
    
 </pre>
 </li>
