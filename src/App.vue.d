@@ -2,25 +2,16 @@
 import {ref} from 'vue'
 
 const awesome = ref(true)
-
-function toggleAwesome(val) {
-	awesome.value = !val
-}
-
-function isAwesome() {
- return awesome.value
-}
 </script>
 
 <template>
-	<button @click = "toggleAwesome(awesome)">toggle</button>
-	<h1 v-if = "isAwesome()">Vue is awesome!</h1>
+	<button @click = "awesome = !awesome">toggle</button>
+	<h1 v-if = "awesome">Vue is awesome!</h1>
 	<h1 v-else>Oh no 😥 </h1>
 
-<!--
+
 	<h4 v-if="awesome">O TRUE</h4>
 	<h4 v-show="awesome">X FALSE</h4>
--->
 </template>
 
 <style scoped>
