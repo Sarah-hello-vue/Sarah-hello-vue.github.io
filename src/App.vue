@@ -1,9 +1,16 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, watchEffect} from 'vue'
 import proverb from "@/assets/proverbs.json"
-//const categories = ref([{name: 'category.name'}, {url: 'category.image_url'} ,{code: 'category.code' }])
 const topic = ref('Amharic proverbs')
 const proverbs  = ref(proverb['Amharic proverbs'])
+function onSearch(item) {
+return item['English Equivalent Proverbs'].toLowerCase().includes('you')
+}
+const filteredProverbs = ref([])
+
+watchEffect(() => {
+filteredProverbs.value = proverbs.value.filter(onSearch)
+})
 
 </script>
 
@@ -11,7 +18,7 @@ const proverbs  = ref(proverb['Amharic proverbs'])
 
 {{topic}}
 <ol> 
-<li v-for="(proverbEach, index) in proverbs">
+<li v-for="(proverbEach, index) in filteredProverbs":key="index" >
 <pre>
    {{proverbEach['Ge\'ez Writing']}} =  {{proverbEach['English Equivalent Proverbs']}}
    
