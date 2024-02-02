@@ -23,10 +23,10 @@ function reverse() {
 <button @click="remove"> remove </button>
 <button @click = "reverse"> reverse </button>
 
-<ul v-if="show && list.length !== 0">
+<ul v-if="show && list.length">
 	<li v-for= "item of list"> {{item}} </li>
 </ul>
-<p v-else-if="!show"> List is not empty, but hidden </p>
+<p v-else-if="!show && list.length"> List is not empty, but hidden </p>
 <p v-else> List is empty</p>
 
 </template>
